@@ -16,17 +16,8 @@ console.log("------------------- step 03 -------------------");
 const cloneObjectLocation = Object.assign(bankLocation);
 const cloneObjectSbi = Object.assign(bankSbi);
 
-// for (const index in cloneObjectLocation) {
-//   console.log(cloneObjectLocation[index]);
-// }
-
-const bankLocationValues = Object.values(bankLocation);
-const bankSbiValues = Object.values(bankSbi);
-// const message = `Bank name : ${bankSbiValues[0]}\nBranch : ${bankSbiValues[1]}\nIFSC code : ${bankSbiValues[2]}\nFounded in : ${bankSbiValues[3]}`;
-// console.log(message);
-
-const message = `Bank name is ${bankSbiValues[0]} it is located at ${bankSbiValues[1]} its IFSC code is ${bankSbiValues[2]} and 
-founded in ${bankSbiValues[3]}. Full address is ${bankLocationValues[0]}, ${bankLocationValues[1]} ${bankLocationValues[2]}`;
+const message = `Bank name is ${cloneObjectSbi.name} it is located at ${cloneObjectSbi.branch} its IFSC code is ${cloneObjectSbi.IFSC} and 
+founded in ${cloneObjectSbi.foundedIn}. Full address is ${cloneObjectLocation.street}, ${cloneObjectLocation.city} ${cloneObjectLocation.pin}. `;
 console.log(message);
 
 const rateOfInterest = {
@@ -38,12 +29,11 @@ const rateOfInterest = {
 console.log("");
 console.log("------------------- step 05 -------------------");
 
-const sbiDetails = Object.assign({}, bankSbi, bankLocation, rateOfInterest);
-const sbiDetailsValues = Object.values(sbiDetails);
+const sbiDetails = Object.assign({}, bankLocation, bankSbi, rateOfInterest);
 
-const message2 = `Bank name is ${sbiDetailsValues[0]} it is located at ${sbiDetailsValues[1]} its IFSC code is ${sbiDetailsValues[2]} and 
-founded in ${sbiDetailsValues[3]}. Full address is ${sbiDetailsValues[4]}, ${sbiDetailsValues[5]} ${sbiDetailsValues[6]}. 
-Home interest is ${sbiDetailsValues[7]} and personal loan interest ${sbiDetailsValues[8]}. Interest due ${sbiDetailsValues[9]}`;
+const message2 = `Bank name is ${sbiDetails.name} it is located at ${sbiDetails.branch} its IFSC code is ${sbiDetails.IFSC} and 
+founded in ${sbiDetails.foundedIn}. Full address is ${sbiDetails.street}, ${sbiDetails.city} ${sbiDetails.pin}. 
+Home interest is ${sbiDetails.homeInterest} and personal loan interest ${sbiDetails.personaLoanInterest}. Interest due ${sbiDetails.dueInterest}`;
 console.log(message2);
 
 console.log("");
